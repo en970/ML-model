@@ -3,18 +3,16 @@ from collections import Counter
 from PIL import Image
 import torch
 
-# Load YOLOv8 model (replace with your custom model if trained on food)
 model = YOLO("yolov8n.pt")  # You can replace with "best.pt" if you trained a model
 
 # Load the image
 image_path = "food3.jpg"  # Replace with your image path
 image = Image.open(image_path)
 
-# Run inference
 results = model(image_path)
 
 # Display the result with bounding boxes (optional)
-results[0].show()
+# results[0].show()
 
 # Extract bounding boxes and class IDs
 detected_classes = results[0].boxes.cls.tolist()
